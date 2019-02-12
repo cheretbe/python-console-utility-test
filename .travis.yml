@@ -17,10 +17,10 @@ env:
     - TEST_PART=1
     - TEST_PART=2
 
-    stages:
-      - name: Unit Tests
-      - name: Deploy
-        if: tag IS present
+stages:
+  - name: Unit Tests
+  - name: Deploy
+    if: tag IS present
 
 conditions: v1
 
