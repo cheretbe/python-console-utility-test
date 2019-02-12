@@ -12,10 +12,10 @@
 
 language: python
 
-env:
-  matrix:
-    - TEST_PART=1
-    - TEST_PART=2
+# env:
+#   matrix:
+#     - TEST_PART=1
+#     - TEST_PART=2
 
 stages:
   - name: Unit Tests
