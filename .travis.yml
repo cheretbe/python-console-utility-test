@@ -1,48 +1,48 @@
-# language: python
-# python:
-#   - "3.6"
-# install:
-#   - pip install pycodestyle
-#   - sudo apt-get -y -q install tree
-# script:
-#   # - pycodestyle --show-source --show-pep8 --format=default console_utility_test/console_utility_test.py
-#   - mkdir -p ~/bin
-#   - sudo ln -fs /home/travis/virtualenv/python3.6.3/bin/pip /usr/bin/pip3
-#   - bash scripts/test.sh
-
 language: python
-
-env:
-  matrix:
-    - TEST_PART=1
-    - TEST_PART=2
-
-    stages:
-      - name: Unit Tests
-      - name: Deploy
-        if: tag IS present
-
 python:
   - "3.6"
+install:
+  - pip install pycodestyle
+  - sudo apt-get -y -q install tree
+script:
+  # - pycodestyle --show-source --show-pep8 --format=default console_utility_test/console_utility_test.py
+  - mkdir -p ~/bin
+  - sudo ln -fs /home/travis/virtualenv/python3.6.3/bin/pip /usr/bin/pip3
+  - bash scripts/test.sh
 
-jobs:
-  fast_finish: true
-  include:
-    - stage: test
-      install: skip
-      script:
-        - echo "Stage ==> test"
-    - stage: deploy
-      python: "3.6"
-      install: skip
-      script:
-        - echo "Stage ==> deploy"
-      # deploy:
-      #   on:
-      #     tags: true
-      #   provider: pypi
-      #   distributions: sdist
-      #   user: qwer
-      #   password:
-      #     secure: "ty"
-      #   skip_upload_docs: true
+# language: python
+
+# env:
+#   matrix:
+#     - TEST_PART=1
+#     - TEST_PART=2
+
+#     stages:
+#       - name: Unit Tests
+#       - name: Deploy
+#         if: tag IS present
+
+# python:
+#   - "3.6"
+
+# jobs:
+#   fast_finish: true
+#   include:
+#     - stage: test
+#       install: skip
+#       script:
+#         - echo "Stage ==> test"
+#     - stage: deploy
+#       python: "3.6"
+#       install: skip
+#       script:
+#         - echo "Stage ==> deploy"
+#       # deploy:
+#       #   on:
+#       #     tags: true
+#       #   provider: pypi
+#       #   distributions: sdist
+#       #   user: qwer
+#       #   password:
+#       #     secure: "ty"
+#       #   skip_upload_docs: true
