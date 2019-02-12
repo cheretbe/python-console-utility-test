@@ -31,12 +31,12 @@ jobs:
     - stage: test
       install: skip
       script:
-        - echo "==> Stage:: test"
+        - echo "Stage ==> test"
     - stage: deploy
       python: "3.6"
       install: skip
       script:
-        - echo "==> Stage:: deploy"
+        - echo "Stage ==> deploy"
       # deploy:
       #   on:
       #     tags: true
