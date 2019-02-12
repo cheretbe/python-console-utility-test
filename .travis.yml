@@ -22,10 +22,10 @@ stages:
   - name: Deploy
     if: tag IS present
 
-conditions: v1
+# conditions: v1
 
-python:
-  - "3.6"
+# python:
+  # - "3.6"
 
 jobs:
   fast_finish: true
