@@ -35,7 +35,7 @@ jobs:
       script:
         - echo "Stage ==> test"
     - stage: deploy
-      python: "3.6"
+      # python: "3.6"
       install: skip
       script:
         - echo "Stage ==> deploy"
