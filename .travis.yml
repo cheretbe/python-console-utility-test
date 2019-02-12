@@ -30,11 +30,11 @@ python:
 jobs:
   fast_finish: true
   include:
-    - stage: test
+    - stage: Unit Tests
       install: skip
       script:
         - echo "Stage ==> test"
-    - stage: deploy
+    - stage: Deploy
       # python: "3.6"
       install: skip
       script:
