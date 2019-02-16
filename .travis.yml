@@ -20,14 +20,6 @@ python:
   - "3.6"
   - "3.7"
 
-# Workaround for "Unable to download 3.7 archive. The archive may not exist. Please consider a different version." error
-# Enable 3.7 without globally enabling sudo and dist: xenial for other build jobs
-# matrix:
-#   include:
-#     - python: "3.7"
-#       dist: xenial
-#       sudo: true
-
 script: python -V
 
 jobs:
@@ -35,7 +27,8 @@ jobs:
   include:
     - stage: deploy
       if: tag IS present
-      language: neutral
+      language: python
+      python: "3.7"
       install: skip
       script:
         - echo "Stage ==> deploy"
