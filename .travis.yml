@@ -21,7 +21,7 @@ python:
 # Enable 3.7 without globally enabling sudo and dist: xenial for other build jobs
 matrix:
   include:
-    - python: 3.7
+    - python: "3.7"
       dist: xenial
       sudo: true
 
@@ -32,6 +32,7 @@ jobs:
   include:
     - stage: deploy
       if: tag IS present
+      language: newtral
       install: skip
       script:
         - echo "Stage ==> deploy"
