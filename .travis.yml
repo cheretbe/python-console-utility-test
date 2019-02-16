@@ -13,8 +13,8 @@
 language: python
 
 python:
+  - "3.4"
   - "3.6"
-  - "3.7"
 
 script: python -V
 
