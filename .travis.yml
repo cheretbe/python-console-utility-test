@@ -11,6 +11,7 @@
 #   - bash scripts/test.sh
 
 language: python
+if: tag IS NOT present
 
 dist: xenial
 
