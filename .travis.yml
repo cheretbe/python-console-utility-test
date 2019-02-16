@@ -35,3 +35,6 @@ jobs:
       install: skip
       script:
         - echo "Stage ==> deploy"
+
+notifications:
+  email: false
