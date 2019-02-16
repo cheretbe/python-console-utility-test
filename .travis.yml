@@ -15,7 +15,6 @@ language: python
 dist: xenial
 
 python:
-  if: tag IS NOT present
   - "3.4"
   - "3.5"
   - "3.6"
