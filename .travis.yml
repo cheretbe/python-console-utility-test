@@ -12,39 +12,17 @@
 
 language: python
 
-# env:
-#   matrix:
-#     - TEST_PART=1
-#     - TEST_PART=2
+python:
+  - "3.6"
+  - "3.7"
 
-stages:
-  - name: Unit Tests
-  - name: Deploy
-    if: tag IS present
-
-# conditions: v1
-
-# python:
-  # - "3.6"
+script: python -V
 
 jobs:
   fast_finish: true
   include:
-    - stage: Unit Tests
-      install: skip
-      script:
-        - echo "Stage ==> test"
-    - stage: Deploy
-      # python: "3.6"
+    - stage: deploy
+      if: tag IS present
       install: skip
       script:
         - echo "Stage ==> deploy"
-      # deploy:
-      #   on:
-      #     tags: true
-      #   provider: pypi
-      #   distributions: sdist
-      #   user: qwer
-      #   password:
-      #     secure: "ty"
-      #   skip_upload_docs: true
