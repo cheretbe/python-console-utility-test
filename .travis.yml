@@ -23,22 +23,21 @@ python:
 script: python -V
 
 matrix:
-  fast_finish: true
   include:
     - python: "3.7"
       if: tag IS present
       env: ['TAG_IS_PRESENT'] 
       script:
         - echo "Tag is present"
-        - docker run -v /home/vagrant:/test:rw -d -t -i --name test centos /sbin/init
+        - docker run -v ${TRAVIS_BUILD_DIR}:/travis -d -t -i --name test centos /sbin/init
         # - docker exec -it test yum -y update
-        - docker exec -it test cat /etc/*release
+        - docker exec -it test cat /etc/centos-release
+        - docker exec -it test ls /travis -lha
         - docker stop test
         - docker rm test
       services: [docker]
 
 # jobs:
-#   fast_finish: true
 #   include:
 #     - stage: deploy
 #       if: tag IS present
