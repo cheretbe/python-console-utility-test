@@ -18,7 +18,7 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-#  - "3.7"
+  - "3.7"
 
 script: python -V
 
@@ -27,6 +27,8 @@ matrix:
   include:
     - python: "3.7"
       if: tag IS present
+      env: ['TAG_IS_PRESENT'] 
+      script: echo "Tag is present"
 
 # jobs:
 #   fast_finish: true
