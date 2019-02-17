@@ -28,7 +28,14 @@ matrix:
     - python: "3.7"
       if: tag IS present
       env: ['TAG_IS_PRESENT'] 
-      script: echo "Tag is present"
+      script:
+        - echo "Tag is present"
+        - docker run -v /home/vagrant:/test:rw -d -t -i --name test centos /sbin/init
+        # - docker exec -it test yum -y update
+        - docker exec -it test cat /etc/*release
+        - docker stop test
+        - docker rm test
+      services: [docker]
 
 # jobs:
 #   fast_finish: true
